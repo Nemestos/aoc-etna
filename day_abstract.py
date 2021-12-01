@@ -7,14 +7,14 @@ class Day(ABC):
         self.input = input_file
 
     @abstractmethod
-    def run(self)->int:
-        print("day")
-    
+    def run(self) -> tuple[int, int]:
+        return 0, 0
+
     def get_input(self):
         return open(self.input, 'r')
 
-    def input_list(self,func=None):
+    def input_list(self, func=None):
         lines = self.get_input().readlines()
         if func is not None:
-            return list(map(func,lines))
+            return list(map(func, lines))
         return lines

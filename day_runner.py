@@ -13,7 +13,7 @@ class AOC:
         objs = []
         for x in dirs:
             mod = importlib.import_module(x + "." + x)
-            objs += [getattr(mod, x.capitalize())("input.txt")]
+            objs += [getattr(mod, x.capitalize())(x+"/input.txt")]
         return objs
 
     def show_days(self, n):

@@ -7,8 +7,12 @@ class Day(ABC):
         self.input = input_file
 
     @abstractmethod
-    def run(self) -> tuple[int, int]:
-        return 0, 0
+    def part1(self) -> int:
+        return 0
+
+    @abstractmethod
+    def part2(self) -> int:
+        return 0
 
     def get_input(self):
         return open(self.input, 'r')

@@ -6,18 +6,19 @@ from day_abstract import Day
 
 class AOC:
     def gets_dirs(self):
-        return [f for f in os.listdir() if re.search(r'day\d', f)]
+        return sorted([f for f in os.listdir() if re.search(r'day\d', f)])
 
     def get_days_objs(self) -> [Day]:
         dirs = self.gets_dirs()
         objs = []
         for x in dirs:
             mod = importlib.import_module(x + "." + x)
-            objs += [getattr(mod, x.capitalize())(x+"/input.txt")]
+            objs += [getattr(mod, x.capitalize())(x + "/input.txt")]
         return objs
 
     def show_days(self, n):
         dirs = self.gets_dirs()
+        print(dirs)
         print("DAYS".center(n, "-"))
         for i in dirs:
             print(i.upper())

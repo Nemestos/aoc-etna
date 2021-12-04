@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
+from time_helper import *
 
 
 class Day(ABC):
     @abstractmethod
     def __init__(self, input_file):
         self.input = input_file
+
 
     @abstractmethod
     def part1(self) -> int:

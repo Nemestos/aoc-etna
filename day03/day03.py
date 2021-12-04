@@ -1,10 +1,14 @@
+import timeit
+
 from day_abstract import Day
+from time_helper import timeit
 
 
 class Day03(Day):
     def __init__(self, input_file):
         super().__init__(input_file);
 
+    @timeit
     def part1(self) -> tuple[int, int]:
         input = self.input_list(lambda x: list(x.rstrip()))
         transposed = list(zip(*input))
@@ -15,6 +19,7 @@ class Day03(Day):
             espsilon += min(i, key=lambda a: i.count(a))
         return int(gamma, 2) * int(espsilon, 2)
 
+    @timeit
     def part2(self) -> int:
         input = self.input_list(lambda x: list(x.rstrip()))
         oxy = self.get_factor("1", input[::], max)

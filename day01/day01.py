@@ -1,10 +1,12 @@
 from day_abstract import Day
+from time_helper import timeit
 
 
 class Day01(Day):
     def __init__(self, input_file):
         super().__init__(input_file);
 
+    @timeit
     def part1(self) -> int:
         input = self.input_list(lambda x: int(x))
         step1 = 0
@@ -14,6 +16,7 @@ class Day01(Day):
 
         return step1
 
+    @timeit
     def part2(self) -> int:
         input = self.input_list(lambda x: int(x))
         step2 = 0

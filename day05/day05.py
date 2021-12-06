@@ -69,7 +69,6 @@ class Day05(Day):
             grid.append([0] * (width + 1))
         for i in input:
             cover = self.line_cover(i, True)
-
             if cover != []:
                 for p in cover:
                     grid[p.y][p.x] += 1

@@ -1,6 +1,7 @@
 import importlib
 import os
 import re
+import multiprocessing
 from day_abstract import Day
 
 
@@ -34,3 +35,10 @@ class AOC:
         day = int(day) - 1
         obj = self.get_days_objs()[day]
         return obj
+
+    def run(self, day):
+
+        print("part01")
+        print(day.part1())
+        print("part02")
+        print(day.part2())

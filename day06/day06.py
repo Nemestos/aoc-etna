@@ -1,3 +1,4 @@
+import collections
 from copy import copy
 
 from day_abstract import Day
@@ -37,14 +38,22 @@ class Day06(Day):
 
     @timeit
     def part2(self) -> tuple[int, int]:
-        input = self.input_list(lambda a: [int(i) for i in a.split(",")])[0]
-        l = len(input)
-        for _ in range(256):
-            temp = copy(l)
-            for i in range(l):
-                new = self.handle_fish(i, input)
-                temp += new
-            l = temp
-            # print(input)
+        input = self.input_list(lambda a: collections.Counter([int(i) for i in a.split(",")]))[0]
 
-        return l
+        print(input)
+
+        for _ in range(256):
+            new = {k - 1: v for k, v in input.items() if k > 0}
+            if new.get(self.DEFAULT_NEW) is None:
+                new[self.DEFAULT_NEW] = 0
+
+            new[self.DEFAULT_NEW] += input.get(0) or 0
+
+            if new.get(self.DEFAULT_FISH) is None:
+                new[self.DEFAULT_FISH] = 0
+
+            new[self.DEFAULT_FISH] += input.get(0) or 0
+            input = new
+
+        return sum(input.values())
+

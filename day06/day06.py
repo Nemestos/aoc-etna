@@ -42,7 +42,7 @@ class Day06(Day):
 
         print(input)
 
-        for _ in range(256):
+        for _ in range(100000):
             new = {k - 1: v for k, v in input.items() if k > 0}
             if new.get(self.DEFAULT_NEW) is None:
                 new[self.DEFAULT_NEW] = 0
